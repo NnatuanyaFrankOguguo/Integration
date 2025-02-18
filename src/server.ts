@@ -37,6 +37,12 @@ app.get('/traffic-robot.json', (req, res) => {
       },
       integration_type: 'interval',
       integration_category: 'Monitoring & Logging',
+      key_features : [
+        "Real-time traffic congestion updates 🚦",
+        "Automatic rerouting suggestions 🗺️",
+        "10-minute interval checks ⏱️",
+        "Easy integration with Telex channels 📨"
+      ],
       settings: [
         {
           label: 'interval',
@@ -45,8 +51,18 @@ app.get('/traffic-robot.json', (req, res) => {
           required: true
         }
       ],
-      tick_url: 'https://integration-ep7w.onrender.com/tick'
-    }
+      tick_url: 'https://integration-ep7w.onrender.com/tick',
+      output: [
+          {
+            "label": "default",
+            "value": true
+          }
+        ],
+        permissions: {
+          "read_messages": true,
+          "send_messages": true
+        }
+      }
   };
 
   res.json(trafficRobotConfig);
