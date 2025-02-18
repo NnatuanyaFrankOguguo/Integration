@@ -32,7 +32,7 @@ app.get('/traffic-robot.json', (req, res) => {
         app_name: 'Traffic Robot 🚦',
         app_description: 'Checks road congestion every 10 minutes!',
         app_logo: 'https://example.com/robot-logo.png',
-        app_url: 'https://your-server.com',
+        app_url: 'https://integration-ep7w.onrender.com',
         background_color: '#4A90E2'
       },
       integration_type: 'interval',
@@ -45,7 +45,7 @@ app.get('/traffic-robot.json', (req, res) => {
           required: true
         }
       ],
-      tick_url: 'https://your-server.com/tick'
+      tick_url: 'https://integration-ep7w.onrender.com/tick'
     }
   };
 
