@@ -69,6 +69,7 @@ app.get('/traffic-robot.json', (req, res) => {
         }
       ],
       tick_url: 'https://integration-ep7w.onrender.com/tick',
+      target_url: 'https://integration-ep7w.onrender.com/target',
       output: [
           {
             "label": "default",
