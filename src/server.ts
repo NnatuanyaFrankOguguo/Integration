@@ -28,6 +28,10 @@ if (!GOOGLE_MAPS_KEY) {
 app.get('/traffic-robot.json', (req, res) => {
   const trafficRobotConfig = {
     data: {
+      date: {
+        "created_at": "2023-01-01",
+        "updated_at": "2023-01-01"
+      },
       descriptions: {
         app_name: 'Traffic Robot 🚦',
         app_description: 'Checks road congestion every 10 minutes!',
@@ -37,6 +41,7 @@ app.get('/traffic-robot.json', (req, res) => {
       },
       integration_type: 'interval',
       integration_category: 'Monitoring & Logging',
+      is_active: false,
       key_features : [
         "Real-time traffic congestion updates 🚦",
         "Automatic rerouting suggestions 🗺️",
@@ -49,6 +54,18 @@ app.get('/traffic-robot.json', (req, res) => {
           type: 'text',
           default: '*/10 * * * *', // Every 10 minutes (cron syntax)
           required: true
+        },
+        {
+          label: "Weather API Key",
+          type: "text",
+          required: true,
+          default: ""
+        },
+        {
+          label: "City",
+          type: "text",
+          required: true,
+          default: "New York"
         }
       ],
       tick_url: 'https://integration-ep7w.onrender.com/tick',
@@ -59,8 +76,10 @@ app.get('/traffic-robot.json', (req, res) => {
           }
         ],
         permissions: {
-          "read_messages": true,
-          "send_messages": true
+        monitoring_user: {
+        always_online: true,
+        display_name: "Weather Monitor"
+      }
         }
       }
   };
