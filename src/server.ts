@@ -1,4 +1,4 @@
-import express from "express";
+import express, {Response, Request} from "express";
 import axios from 'axios';
 import dotenv from "dotenv";
 import cors from "cors";
@@ -13,7 +13,7 @@ app.use(express.json());
 const now = new Date().toISOString().split("T")[0];
 
 // Add this endpoint to your existing server.ts
-app.get('/traffic-robot.json', (req, res) => {
+app.get('/integration.json', (req : Request, res: Response) => {
   const trafficRobotConfig = {
     data: {
       date: {
@@ -39,6 +39,18 @@ app.get('/traffic-robot.json', (req, res) => {
       author: 'Frank Oguguo',
       settings: [
         {
+          "label": "Site 1",
+          "type": "text",
+          "required": true,
+          "default": "static-data-route-1"
+        },
+        {
+          "label": "Site 2",
+          "type": "text",
+          "required": true,
+          "default": "static-data-route-2"
+        },
+        {
           label: 'Line interval',
           type: 'text',
           default: '*/10 * * * *', // Every 10 minutes (cron syntax)
@@ -60,7 +72,7 @@ app.get('/traffic-robot.json', (req, res) => {
 });
 
 
-app.post("/tick", async(req, res) => {
+app.post("/tick", async(req : Request, res: Response) => {
  try {
     const { return_url } = req.body
      // 4. Ask Google Maps about traffic (example for Highway 5)
