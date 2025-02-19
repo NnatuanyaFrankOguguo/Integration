@@ -1,0 +1,65 @@
+{
+    "routes": [
+      {
+        "legs": [
+          {
+            "start_address": "123 Start St, City, State",
+            "end_address": "789 End Ave, City, State",
+            "distance": {
+              "text": "3.5 mi",
+              "value": 5600
+            },
+            "duration": {
+              "text": "17 mins",
+              "value": 1020
+            },
+            "duration_in_traffic": {
+              "text": "20 mins",
+              "value": 1200
+            },
+            "steps": [
+              {
+                "html_instructions": "Head east on Main St",
+                "distance": {
+                  "text": "0.5 mi",
+                  "value": 800
+                },
+                "duration": {
+                  "text": "2 mins",
+                  "value": 120
+                },
+                "traffic_speed_entry": ["clear"]
+              },
+              {
+                "html_instructions": "Merge onto Highway 5",
+                "distance": {
+                  "text": "2.0 mi",
+                  "value": 3200
+                },
+                "duration": {
+                  "text": "10 mins",
+                  "value": 600
+                },
+                "traffic_speed_entry": ["congestion"]
+              },
+              {
+                "html_instructions": "Continue on Highway 5",
+                "distance": {
+                  "text": "1.0 mi",
+                  "value": 1600
+                },
+                "duration": {
+                  "text": "5 mins",
+                  "value": 300
+                },
+                "traffic_speed_entry": ["clear"]
+              }
+            ]
+          }
+        ],
+        "summary": "Highway 5"
+      }
+    ],
+    "status": "OK"
+  }
+  
